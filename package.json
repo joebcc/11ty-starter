@@ -5,12 +5,12 @@
   "main": "index.js",
   "scripts": {
     "clean": "rm -rf public src/css/tailwind.css",
-    "watch:sass": "sass --watch src/scss:public/css",
-    "build:sass": "sass src/scss:public/css",
+    "watch:sass": "sass --watch src/scss:src/css",
+    "build:sass": "sass src/scss:src/css",
     "watch:eleventy": "postcss src/scss/tailwind.css > src/css/tailwind.css && eleventy --serve",
     "build:eleventy": "NODE_ENV=production postcss src/scss/tailwind.css > src/css/tailwind.css && eleventy",
     "start": "npm-run-all clean build:sass --parallel watch:*",
-    "build": "npm-run-all clean build:*",
+    "build": "npm-run-all clean build:*"
   },
   "keywords": [],
   "author": "",

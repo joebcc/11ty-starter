@@ -4,6 +4,55 @@ layout: "base.njk"
 
 {% set navPages = collections.all | eleventyNavigation %}
 
-<div>
-  Hello World!
-</div>
+<main id="datapainpoints">
+  <section id="dpp-home" :class="activeslide < 1 ? 'active' : 'inactive'">
+    {% include '_partials/home.njk' %}
+  </section>
+  
+  <section id="dpp-quiz" class="quiz bg-black" :class="(activeslide > 0 && activeslide < questions.length) ? 'active' : 'inactive'">
+      {% include '_partials/questionsSlide.njk' %}
+  </section>
+
+  <section id="results" v-if="activeslide === questions.length" :class="activeslide === questions.length ? 'active' : 'inactive'">
+    <div class="container" v-if="result === 'feelingReady'">
+      {% include '_partials/feelingReady.njk' %}
+    </div>
+    <div class="container" v-else>
+      {% include '_partials/feelingGood.njk' %}
+    </div>
+
+  </section>
+
+</main>
+
+<script>
+var questions = {% include './_data/questions.json' %};
+var dpp = new Vue({
+  el: '#datapainpoints',
+  data: {
+    questions,
+    activeslide: 0,
+    scoretoreach: 13,
+    answeredscore: {},
+  },
+  computed: {
+    score() {
+      return Object.values(this.answeredscore).reduce((a,b) => a+b)
+    },
+    result() {
+      if (this.score > this.scoretoreach) {
+        return 'feelingReady';
+      }
+      return 'feelingGood';
+    }
+  },
+  methods: {
+    setAnswer(questionindex, answerindex){
+      questionindex = questionindex - 1;
+      answerindex = answerindex - 1;
+      let questionslot = `q${questionindex}`;
+      this.answeredscore[questionslot] = this.questions[questionindex].answers[answerindex].weight;
+    }
+  }
+});
+</script>

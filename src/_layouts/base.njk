@@ -5,17 +5,20 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge; charset=utf-8" />
-    <link rel="stylesheet" href="css/tailwind.css">
-		{# <title>Equinix</title> #}
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link rel="stylesheet" id="app-styles-css" href="https://cdn.sisense.com/dotcom/assets/app.b7affff3c8d3846a6071.css" type="text/css" media="all">
+		<link rel="stylesheet" as="style" id="common-styles-css" href="https://cdn.sisense.com/dotcom/assets/common.240d85d230abeb73a4a9.css" type="text/css" media="all">
+		<link rel="stylesheet" as="style" id="common-styles-css" href="" type="text/css" media="all">
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+		
 		<title>{% if title %}{{ title }} {% endif %}</title>
 
 		{% set css %}
-			{% include "scss/normalize.scss" %}
-			{% include "scss/tailwind.scss" %}
-			{% include "scss/main.scss" %}
+			{% include "../scss/normalize.scss" %}
+			{% include "../css/main.css" %}
 		{% endset %}
 		<style>
-			{{ css | cssmin | safe }}
+			{{ css  | safe }}
 		</style>
 
 	</head>

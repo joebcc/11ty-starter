@@ -1,22 +1,23 @@
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const svgContents = require("eleventy-plugin-svg-contents");
-
 const CleanCSS = require("clean-css");
+
 module.exports = function(eleventyConfig) {
+
     eleventyConfig.addFilter("cssmin", function(code) {
         return new CleanCSS({}).minify(code).styles;
     });
 
     eleventyConfig.addWatchTarget("./src/scss/");
     eleventyConfig.addPassthroughCopy("./src/css");
+    eleventyConfig.addPassthroughCopy("./src/_data/questions.json");
     eleventyConfig.addPassthroughCopy("./src/static");
     eleventyConfig.addPassthroughCopy("./src/js");
     
     // add naviagtion plugin
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
     eleventyConfig.addPlugin(svgContents);
-
-
+  
 
 
     return {

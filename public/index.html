@@ -1,0 +1,591 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge; charset=utf-8" />
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link rel="stylesheet" id="app-styles-css" href="https://cdn.sisense.com/dotcom/assets/app.b7affff3c8d3846a6071.css" type="text/css" media="all">
+		<link rel="stylesheet" as="style" id="common-styles-css" href="https://cdn.sisense.com/dotcom/assets/common.240d85d230abeb73a4a9.css" type="text/css" media="all">
+		<link rel="stylesheet" as="style" id="common-styles-css" href="" type="text/css" media="all">
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+		
+		<title></title>
+
+		
+		<style>
+			
+			
+  /* normalize CSS */
+  a {
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  a:active,
+  a:hover {
+    outline: 0;
+  }
+
+  img {
+    border: 0;
+    /*-webkit-filter: blur(0);*/
+  }
+
+
+  html,
+  html a {
+    font-smooth: always;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  *,
+  *:before,
+  *:after {
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+
+  :focus {
+    outline: none;
+  }
+
+  ::-moz-focus-inner {
+    border: 0;
+  }
+
+			#datapainpoints,
+.questions {
+  display: grid;
+  grid-template-areas: "a";
+}
+#datapainpoints > section,
+#datapainpoints .question,
+.questions > section,
+.questions .question {
+  margin: 0;
+  grid-area: a;
+}
+
+.question.active,
+#datapainpoints section.active {
+  opacity: 1;
+  z-index: 100;
+}
+.question.inactive,
+#datapainpoints section.inactive {
+  opacity: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+#dpp-quiz {
+  min-height: 70vh;
+}
+
+/*# sourceMappingURL=main.css.map */
+
+		
+		</style>
+
+	</head>
+	<body>
+		
+
+
+<main id="datapainpoints">
+  <section id="dpp-home" :class="activeslide < 1 ? 'active' : 'inactive'">
+    <div class="container">
+  <div class="row  columns-valign-center">
+    <div class="col-md-8">
+      <h2>
+        Harness the power of analytic infusion with the leading cloud analytics platform
+      </h2>
+      <p>
+        Sisense Fusion is the leading AI-driven embedded analytics platform that infuses intelligence at the right place and the right time, every time
+      </p>
+      <p>
+        <a @click="activeslide += 1">
+          <span class="animarrow">
+            Explore the platform
+          </span>
+        </a>
+      </p>
+    </div>
+  </div>
+</div>
+  </section>
+  
+  <section id="dpp-quiz" class="quiz bg-black" :class="(activeslide > 0 && activeslide < questions.length) ? 'active' : 'inactive'">
+      <div class="container">
+  <div class="instructions">
+
+  </div>
+  <nav class="slide-navigation">
+    
+  </nav>
+
+  <div class="questions">
+    
+      
+      
+<div id="dpp-" class="question" :class="activeslide === 1 ? 'active' : 'inactive'">
+    <h3>
+      Analytics make me want to:
+    </h3>
+    <ul class="answers row">
+      
+        
+        <div class="answer col-md-4" @click="setAnswer(1, 1)">
+            <img src="" alt="" class="answer-image">
+            <div class="answer-text" >
+                Smile
+            </div>
+        </div>
+      
+        
+        <div class="answer col-md-4" @click="setAnswer(1, 2)">
+            <img src="" alt="" class="answer-image">
+            <div class="answer-text" >
+                Scream
+            </div>
+        </div>
+      
+        
+        <div class="answer col-md-4" @click="setAnswer(1, 3)">
+            <img src="" alt="" class="answer-image">
+            <div class="answer-text" >
+                Dance
+            </div>
+        </div>
+      
+    </ul>
+
+</div>
+    
+      
+      
+<div id="dpp-" class="question" :class="activeslide === 2 ? 'active' : 'inactive'">
+    <h3>
+      My teams think data is:
+    </h3>
+    <ul class="answers row">
+      
+        
+        <div class="answer col-md-4" @click="setAnswer(2, 1)">
+            <img src="" alt="" class="answer-image">
+            <div class="answer-text" >
+                Problematic
+            </div>
+        </div>
+      
+        
+        <div class="answer col-md-4" @click="setAnswer(2, 2)">
+            <img src="" alt="" class="answer-image">
+            <div class="answer-text" >
+                Good
+            </div>
+        </div>
+      
+        
+        <div class="answer col-md-4" @click="setAnswer(2, 3)">
+            <img src="" alt="" class="answer-image">
+            <div class="answer-text" >
+                Gold
+            </div>
+        </div>
+      
+    </ul>
+
+</div>
+    
+      
+      
+<div id="dpp-" class="question" :class="activeslide === 3 ? 'active' : 'inactive'">
+    <h3>
+      My BI platform gives me data that is:
+    </h3>
+    <ul class="answers row">
+      
+        
+        <div class="answer col-md-4" @click="setAnswer(3, 1)">
+            <img src="" alt="" class="answer-image">
+            <div class="answer-text" >
+                Mind-boggling
+            </div>
+        </div>
+      
+        
+        <div class="answer col-md-4" @click="setAnswer(3, 2)">
+            <img src="" alt="" class="answer-image">
+            <div class="answer-text" >
+                Acceptable
+            </div>
+        </div>
+      
+        
+        <div class="answer col-md-4" @click="setAnswer(3, 3)">
+            <img src="" alt="" class="answer-image">
+            <div class="answer-text" >
+                Actionable
+            </div>
+        </div>
+      
+    </ul>
+
+</div>
+    
+      
+      
+<div id="dpp-" class="question" :class="activeslide === 4 ? 'active' : 'inactive'">
+    <h3>
+      My teams think data is:
+    </h3>
+    <ul class="answers row">
+      
+        
+        <div class="answer col-md-4" @click="setAnswer(4, 1)">
+            <img src="" alt="" class="answer-image">
+            <div class="answer-text" >
+                Disappointment
+            </div>
+        </div>
+      
+        
+        <div class="answer col-md-4" @click="setAnswer(4, 2)">
+            <img src="" alt="" class="answer-image">
+            <div class="answer-text" >
+                Status quo
+            </div>
+        </div>
+      
+        
+        <div class="answer col-md-4" @click="setAnswer(4, 3)">
+            <img src="" alt="" class="answer-image">
+            <div class="answer-text" >
+                Big wins
+            </div>
+        </div>
+      
+    </ul>
+
+</div>
+    
+      
+      
+<div id="dpp-" class="question" :class="activeslide === 5 ? 'active' : 'inactive'">
+    <h3>
+      To customize my BI platform with inputs or KPIs, I need:
+    </h3>
+    <ul class="answers row">
+      
+        
+        <div class="answer col-md-4" @click="setAnswer(5, 1)">
+            <img src="" alt="" class="answer-image">
+            <div class="answer-text" >
+                Time
+            </div>
+        </div>
+      
+        
+        <div class="answer col-md-4" @click="setAnswer(5, 2)">
+            <img src="" alt="" class="answer-image">
+            <div class="answer-text" >
+                Prayer
+            </div>
+        </div>
+      
+        
+        <div class="answer col-md-4" @click="setAnswer(5, 3)">
+            <img src="" alt="" class="answer-image">
+            <div class="answer-text" >
+                Just a few clicks
+            </div>
+        </div>
+      
+    </ul>
+
+</div>
+    
+      
+      
+<div id="dpp-" class="question" :class="activeslide === 6 ? 'active' : 'inactive'">
+    <h3>
+      My teams’ faces when they use our BI platform:
+    </h3>
+    <ul class="answers row">
+      
+        
+        <div class="answer col-md-4" @click="setAnswer(6, 1)">
+            <img src="" alt="" class="answer-image">
+            <div class="answer-text" >
+                Distressed
+            </div>
+        </div>
+      
+        
+        <div class="answer col-md-4" @click="setAnswer(6, 2)">
+            <img src="" alt="" class="answer-image">
+            <div class="answer-text" >
+                Calm
+            </div>
+        </div>
+      
+        
+        <div class="answer col-md-4" @click="setAnswer(6, 3)">
+            <img src="" alt="" class="answer-image">
+            <div class="answer-text" >
+                Confident
+            </div>
+        </div>
+      
+    </ul>
+
+</div>
+    
+      
+      
+<div id="dpp-" class="question" :class="activeslide === 7 ? 'active' : 'inactive'">
+    <h3>
+      My team asks for a more powerful BI tool:
+    </h3>
+    <ul class="answers row">
+      
+        
+        <div class="answer col-md-4" @click="setAnswer(7, 1)">
+            <img src="" alt="" class="answer-image">
+            <div class="answer-text" >
+                Often
+            </div>
+        </div>
+      
+        
+        <div class="answer col-md-4" @click="setAnswer(7, 2)">
+            <img src="" alt="" class="answer-image">
+            <div class="answer-text" >
+                Sometimes
+            </div>
+        </div>
+      
+        
+        <div class="answer col-md-4" @click="setAnswer(7, 3)">
+            <img src="" alt="" class="answer-image">
+            <div class="answer-text" >
+                Rarely
+            </div>
+        </div>
+      
+    </ul>
+
+</div>
+    
+  </div> 
+
+  <div class="slide-nav">
+    <a class="previous action-btn min-w-min" @click="activeslide -= 1">
+      Previous
+    </a>
+    <a class="next action-btn min-w-min" @click="activeslide += 1">
+      Next
+    </a>
+  </div>
+</div>
+  </section>
+
+  <section id="results" v-if="activeslide === questions.length" :class="activeslide === questions.length ? 'active' : 'inactive'">
+    <div class="container" v-if="result === 'feelingReady'">
+      
+    </div>
+    <div class="container" v-else>
+      
+    </div>
+
+  </section>
+
+</main>
+
+<script>
+var questions = [
+  {
+    "question": "Analytics make me want to:",
+    "answers": [
+      {
+        "answertext": "Smile",
+        "imagesrc": "",
+        "imagealt": "",
+        "weight": 0
+      }, {
+        "answertext": "Scream",
+        "imagesrc": "",
+        "imagealt": "",
+        "weight": 1
+      }, {
+        "answertext": "Dance",
+        "imagesrc": "",
+        "imagealt": "",
+        "weight": 2
+      }
+    ]
+  }, {
+    "question": "My teams think data is:",
+    "answers": [
+      {
+        "answertext": "Problematic",
+        "imagesrc": "",
+        "imagealt": "",
+        "weight": 0
+      }, {
+        "answertext": "Good",
+        "imagesrc": "",
+        "imagealt": "",
+        "weight": 1
+      }, {
+        "answertext": "Gold",
+        "imagesrc": "",
+        "imagealt": "",
+        "weight": 2
+      }
+    ]
+  }, {
+    "question": "My BI platform gives me data that is:",
+    "answers": [
+      {
+        "answertext": "Mind-boggling",
+        "imagesrc": "",
+        "imagealt": "",
+        "weight": 0
+      }, {
+        "answertext": "Acceptable",
+        "imagesrc": "",
+        "imagealt": "",
+        "weight": 1
+      }, {
+        "answertext": "Actionable",
+        "imagesrc": "",
+        "imagealt": "",
+        "weight": 2
+      }
+    ]
+  }, {
+    "question": "My teams think data is:",
+    "answers": [
+      {
+        "answertext": "Disappointment",
+        "imagesrc": "",
+        "imagealt": "",
+        "weight": 0
+      }, {
+        "answertext": "Status quo",
+        "imagesrc": "",
+        "imagealt": "",
+        "weight": 1
+      }, {
+        "answertext": "Big wins",
+        "imagesrc": "",
+        "imagealt": "",
+        "weight": 2
+      }
+    ]
+  }, {
+    "question": "To customize my BI platform with inputs or KPIs, I need:",
+    "answers": [
+      {
+        "answertext": "Time",
+        "imagesrc": "",
+        "imagealt": "",
+        "weight": 0
+      }, {
+        "answertext": "Prayer",
+        "imagesrc": "",
+        "imagealt": "",
+        "weight": 1
+      }, {
+        "answertext": "Just a few clicks",
+        "imagesrc": "",
+        "imagealt": "",
+        "weight": 2
+      }
+    ]
+  }, {
+    "question": "My teams’ faces when they use our BI platform:",
+    "answers": [
+      {
+        "answertext": "Distressed",
+        "imagesrc": "",
+        "imagealt": "",
+        "weight": 0
+      }, {
+        "answertext": "Calm",
+        "imagesrc": "",
+        "imagealt": "",
+        "weight": 1
+      }, {
+        "answertext": "Confident",
+        "imagesrc": "",
+        "imagealt": "",
+        "weight": 2
+      }
+    ]
+  }, {
+    "question": "My team asks for a more powerful BI tool:",
+    "answers": [
+      {
+        "answertext": "Often",
+        "imagesrc": "",
+        "imagealt": "",
+        "weight": 0
+      }, {
+        "answertext": "Sometimes",
+        "imagesrc": "",
+        "imagealt": "",
+        "weight": 1
+      }, {
+        "answertext": "Rarely",
+        "imagesrc": "",
+        "imagealt": "",
+        "weight": 2
+      }
+    ]
+  }
+];
+var dpp = new Vue({
+  el: '#datapainpoints',
+  data: {
+    questions,
+    activeslide: 0,
+    scoretoreach: 13,
+    answeredscore: {},
+  },
+  computed: {
+    score() {
+      return Object.values(this.answeredscore).reduce((a,b) => a+b)
+    },
+    result() {
+      if (this.score > this.scoretoreach) {
+        return 'feelingReady';
+      }
+      return 'feelingGood';
+    }
+  },
+  methods: {
+    setAnswer(questionindex, answerindex){
+      questionindex = questionindex - 1;
+      answerindex = answerindex - 1;
+      let questionslot = `q${questionindex}`;
+      this.answeredscore[questionslot] = this.questions[questionindex].answers[answerindex].weight;
+    }
+  }
+});
+</script>
+	</body>
+</html>

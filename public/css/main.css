@@ -1,0 +1,30 @@
+#datapainpoints,
+.questions {
+  display: grid;
+  grid-template-areas: "a";
+}
+#datapainpoints > section,
+#datapainpoints .question,
+.questions > section,
+.questions .question {
+  margin: 0;
+  grid-area: a;
+}
+
+.question.active,
+#datapainpoints section.active {
+  opacity: 1;
+  z-index: 100;
+}
+.question.inactive,
+#datapainpoints section.inactive {
+  opacity: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+#dpp-quiz {
+  min-height: 70vh;
+}
+
+/*# sourceMappingURL=main.css.map */

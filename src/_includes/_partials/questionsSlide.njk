@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="instructions">
+
+  </div>
+  <nav class="slide-navigation">
+    {{ content | safe }}
+  </nav>
+
+  <div class="questions">
+    {% for question in questions %}
+      {% set qi = loop.index %}
+      {% include '_partials/question-template.njk' %}
+    {% endfor %}
+  </div> 
+
+  <div class="slide-nav">
+    <a class="previous action-btn min-w-min" @click="activeslide -= 1">
+      Previous
+    </a>
+    <a class="next action-btn min-w-min" @click="activeslide += 1">
+      Next
+    </a>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+
+#datapainpoints, 
+.questions {
+  display: grid;
+  grid-template-areas: 'a';
+
+  > section,
+  .question {
+    margin: 0;
+    grid-area: a;
+  }
+}
+
+.question,
+#datapainpoints section {
+  &.active {
+    opacity: 1;
+    z-index: 100;
+  }
+  &.inactive {
+    opacity: 0;
+    z-index: 1;
+    pointer-events: none;
+  }
+}
+#dpp-quiz {
+  min-height: 70vh;
+}

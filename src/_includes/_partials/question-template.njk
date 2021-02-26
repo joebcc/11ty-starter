@@ -1,0 +1,18 @@
+{# qi is set in loop in questionSlide. mixing 11ty/njks and vue here #}
+<div id="dpp-{{ id }}" class="question" :class="activeslide === {{qi}} ? 'active' : 'inactive'">
+    <h3>
+      {{ question.question | safe }}
+    </h3>
+    <ul class="answers row">
+      {% for answer in question.answers  %}
+        {% set ai = loop.index %}
+        <div class="answer col-md-4" @click="setAnswer({{qi}}, {{ai}})">
+            <img src="{{answer.imagesource}}" alt="{{answer.imagealt}}" class="answer-image">
+            <div class="answer-text" >
+                {{answer.answertext}}
+            </div>
+        </div>
+      {% endfor %}
+    </ul>
+
+</div>

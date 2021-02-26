@@ -1,0 +1,143 @@
+[
+  {
+    "question": "Analytics make me want to:",
+    "answers": [
+      {
+        "answertext": "Smile",
+        "imagesrc": "",
+        "imagealt": "",
+        "weight": 0
+      }, {
+        "answertext": "Scream",
+        "imagesrc": "",
+        "imagealt": "",
+        "weight": 1
+      }, {
+        "answertext": "Dance",
+        "imagesrc": "",
+        "imagealt": "",
+        "weight": 2
+      }
+    ]
+  }, {
+    "question": "My teams think data is:",
+    "answers": [
+      {
+        "answertext": "Problematic",
+        "imagesrc": "",
+        "imagealt": "",
+        "weight": 0
+      }, {
+        "answertext": "Good",
+        "imagesrc": "",
+        "imagealt": "",
+        "weight": 1
+      }, {
+        "answertext": "Gold",
+        "imagesrc": "",
+        "imagealt": "",
+        "weight": 2
+      }
+    ]
+  }, {
+    "question": "My BI platform gives me data that is:",
+    "answers": [
+      {
+        "answertext": "Mind-boggling",
+        "imagesrc": "",
+        "imagealt": "",
+        "weight": 0
+      }, {
+        "answertext": "Acceptable",
+        "imagesrc": "",
+        "imagealt": "",
+        "weight": 1
+      }, {
+        "answertext": "Actionable",
+        "imagesrc": "",
+        "imagealt": "",
+        "weight": 2
+      }
+    ]
+  }, {
+    "question": "My teams think data is:",
+    "answers": [
+      {
+        "answertext": "Disappointment",
+        "imagesrc": "",
+        "imagealt": "",
+        "weight": 0
+      }, {
+        "answertext": "Status quo",
+        "imagesrc": "",
+        "imagealt": "",
+        "weight": 1
+      }, {
+        "answertext": "Big wins",
+        "imagesrc": "",
+        "imagealt": "",
+        "weight": 2
+      }
+    ]
+  }, {
+    "question": "To customize my BI platform with inputs or KPIs, I need:",
+    "answers": [
+      {
+        "answertext": "Time",
+        "imagesrc": "",
+        "imagealt": "",
+        "weight": 0
+      }, {
+        "answertext": "Prayer",
+        "imagesrc": "",
+        "imagealt": "",
+        "weight": 1
+      }, {
+        "answertext": "Just a few clicks",
+        "imagesrc": "",
+        "imagealt": "",
+        "weight": 2
+      }
+    ]
+  }, {
+    "question": "My teams’ faces when they use our BI platform:",
+    "answers": [
+      {
+        "answertext": "Distressed",
+        "imagesrc": "",
+        "imagealt": "",
+        "weight": 0
+      }, {
+        "answertext": "Calm",
+        "imagesrc": "",
+        "imagealt": "",
+        "weight": 1
+      }, {
+        "answertext": "Confident",
+        "imagesrc": "",
+        "imagealt": "",
+        "weight": 2
+      }
+    ]
+  }, {
+    "question": "My team asks for a more powerful BI tool:",
+    "answers": [
+      {
+        "answertext": "Often",
+        "imagesrc": "",
+        "imagealt": "",
+        "weight": 0
+      }, {
+        "answertext": "Sometimes",
+        "imagesrc": "",
+        "imagealt": "",
+        "weight": 1
+      }, {
+        "answertext": "Rarely",
+        "imagesrc": "",
+        "imagealt": "",
+        "weight": 2
+      }
+    ]
+  }
+]

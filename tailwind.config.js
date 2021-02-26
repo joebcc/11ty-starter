@@ -1,10 +1,11 @@
 module.exports = {
     purge: {
+      layers: ['components', 'utilities', 'base'],
       content: [
       './src/**/*.html',
       './src/**/*.njk',
       './src/**/*.js',
-    ],
+      ],
     },
     darkMode: false, // or 'media' or 'class'
     theme: {
