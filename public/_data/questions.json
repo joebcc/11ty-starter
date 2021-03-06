@@ -3,18 +3,18 @@
     "question": "Analytics make me want to:",
     "answers": [
       {
-        "answertext": "Smile",
-        "imagesrc": "",
+        "answertext": "Scream",
+        "imagesrc": "scream.svg",
         "imagealt": "",
         "weight": 0
-      }, {
-        "answertext": "Scream",
-        "imagesrc": "",
+        }, {
+        "answertext": "Smile",
+        "imagesrc": "smile.svg",
         "imagealt": "",
         "weight": 1
       }, {
         "answertext": "Dance",
-        "imagesrc": "",
+        "imagesrc": "dance.svg",
         "imagealt": "",
         "weight": 2
       }
@@ -24,17 +24,17 @@
     "answers": [
       {
         "answertext": "Problematic",
-        "imagesrc": "",
+        "imagesrc": "problematic.svg",
         "imagealt": "",
         "weight": 0
       }, {
         "answertext": "Good",
-        "imagesrc": "",
+        "imagesrc": "good.svg",
         "imagealt": "",
         "weight": 1
       }, {
         "answertext": "Gold",
-        "imagesrc": "",
+        "imagesrc": "gold.svg",
         "imagealt": "",
         "weight": 2
       }
@@ -44,17 +44,17 @@
     "answers": [
       {
         "answertext": "Mind-boggling",
-        "imagesrc": "",
+        "imagesrc": "mind-boggling.svg",
         "imagealt": "",
         "weight": 0
       }, {
         "answertext": "Acceptable",
-        "imagesrc": "",
+        "imagesrc": "acceptable.svg",
         "imagealt": "",
         "weight": 1
       }, {
         "answertext": "Actionable",
-        "imagesrc": "",
+        "imagesrc": "actionable.svg",
         "imagealt": "",
         "weight": 2
       }
@@ -64,37 +64,37 @@
     "answers": [
       {
         "answertext": "Disappointment",
-        "imagesrc": "",
+        "imagesrc": "disappointment.svg",
         "imagealt": "",
         "weight": 0
       }, {
         "answertext": "Status quo",
-        "imagesrc": "",
+        "imagesrc": "status-quo.svg",
         "imagealt": "",
         "weight": 1
       }, {
         "answertext": "Big wins",
-        "imagesrc": "",
+        "imagesrc": "big-wins.svg",
         "imagealt": "",
         "weight": 2
       }
     ]
   }, {
-    "question": "To customize my BI platform with inputs or KPIs, I need:",
+    "question": "When I use data to set priorities, I expect:",
     "answers": [
       {
-        "answertext": "Time",
-        "imagesrc": "",
+        "answertext": "Prayer",
+        "imagesrc": "prayer.svg",
         "imagealt": "",
         "weight": 0
-      }, {
-        "answertext": "Prayer",
-        "imagesrc": "",
+        }, {
+        "answertext": "Time",
+        "imagesrc": "time.svg",
         "imagealt": "",
         "weight": 1
       }, {
         "answertext": "Just a few clicks",
-        "imagesrc": "",
+        "imagesrc": "just-a-few-clicks.svg",
         "imagealt": "",
         "weight": 2
       }
@@ -104,17 +104,17 @@
     "answers": [
       {
         "answertext": "Distressed",
-        "imagesrc": "",
+        "imagesrc": "distressed.svg",
         "imagealt": "",
         "weight": 0
       }, {
         "answertext": "Calm",
-        "imagesrc": "",
+        "imagesrc": "calm.svg",
         "imagealt": "",
         "weight": 1
       }, {
         "answertext": "Confident",
-        "imagesrc": "",
+        "imagesrc": "confident.svg",
         "imagealt": "",
         "weight": 2
       }
@@ -124,17 +124,17 @@
     "answers": [
       {
         "answertext": "Often",
-        "imagesrc": "",
+        "imagesrc": "often.svg",
         "imagealt": "",
         "weight": 0
       }, {
         "answertext": "Sometimes",
-        "imagesrc": "",
+        "imagesrc": "sometimes.svg",
         "imagealt": "",
         "weight": 1
       }, {
         "answertext": "Rarely",
-        "imagesrc": "",
+        "imagesrc": "rarely.svg",
         "imagealt": "",
         "weight": 2
       }

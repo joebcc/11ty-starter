@@ -1,13 +1,19 @@
 {# qi is set in loop in questionSlide. mixing 11ty/njks and vue here #}
-<div id="dpp-{{ id }}" class="question" :class="activeslide === {{qi}} ? 'active' : 'inactive'">
+<div 
+id="dpp-{{ id }}" 
+class="question" 
+:class="activeslide === {{qi}} ? 'active' : 'inactive'">
     <h3>
       {{ question.question | safe }}
     </h3>
-    <ul class="answers row">
+    <ul class="answers">
       {% for answer in question.answers  %}
         {% set ai = loop.index %}
-        <div class="answer col-md-4" @click="setAnswer({{qi}}, {{ai}})">
-            <img src="{{answer.imagesource}}" alt="{{answer.imagealt}}" class="answer-image">
+        {% set imagesrc = '/src/_includes/_partials/images/' + answer.imagesrc %}
+        <div class="answer" 
+        @click="setAnswer({{qi - 1}}, {{ai - 1}})" 
+        :class="answeredquestions[{{qi - 1}}] === questions[{{qi - 1}}].answers[{{ai - 1}}].answertext && 'active'">
+            {{imagesrc | svgContents | safe}}
             <div class="answer-text" >
                 {{answer.answertext}}
             </div>

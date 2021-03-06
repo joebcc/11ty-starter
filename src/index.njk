@@ -5,20 +5,26 @@ layout: "base.njk"
 {% set navPages = collections.all | eleventyNavigation %}
 
 <main id="datapainpoints">
-  <section id="dpp-home" :class="activeslide < 1 ? 'active' : 'inactive'">
+  {# <div class="absolute bg-yellow">
+    <h2>testing options:</h2>
+    <a @click="skiptoend()">skip to "doingok"</a> | 
+    <a @click="skiptoend('a')">skip to "feeling ready"</a>
+  </div> #}
+  <section id="dpp-home" class="bg-fullblack bg-black" :class="activeslide < 1 ? 'active' : 'inactive'">
     {% include '_partials/home.njk' %}
   </section>
   
-  <section id="dpp-quiz" class="quiz bg-black" :class="(activeslide > 0 && activeslide < questions.length) ? 'active' : 'inactive'">
+  <section id="dpp-quiz" class="quiz bg-black" :class="(activeslide > 0 && activeslide <= questions.length) ? 'active' : 'inactive'" :date-time="time">
       {% include '_partials/questionsSlide.njk' %}
   </section>
 
-  <section id="results" v-if="activeslide === questions.length" :class="activeslide === questions.length ? 'active' : 'inactive'">
-    <div class="container" v-if="result === 'feelingReady'">
+  <section id="results" class="pb-6" v-if="activeslide > questions.length" :class="activeslide > questions.length ? 'active' : 'inactive'">
+    <div class="ready" v-if="result === 'feelingReady'">
       {% include '_partials/feelingReady.njk' %}
     </div>
-    <div class="container" v-else>
-      {% include '_partials/feelingGood.njk' %}
+
+    <div class="ok" v-if="result === 'doingOK'">
+      {% include '_partials/doingOK.njk' %}
     </div>
 
   </section>
@@ -32,27 +38,45 @@ var dpp = new Vue({
   data: {
     questions,
     activeslide: 0,
-    scoretoreach: 13,
+    scoretoreach: 10,
     answeredscore: {},
+    answeredquestions: {},
+    time: Date.now(),
   },
   computed: {
     score() {
-      return Object.values(this.answeredscore).reduce((a,b) => a+b)
+      return Object.values(this.answeredscore).reduce((a,b) => a + b)
     },
     result() {
-      if (this.score > this.scoretoreach) {
+      if (this.score >= this.scoretoreach) {
         return 'feelingReady';
       }
-      return 'feelingGood';
+      return 'doingOK';
     }
   },
   methods: {
     setAnswer(questionindex, answerindex){
-      questionindex = questionindex - 1;
-      answerindex = answerindex - 1;
       let questionslot = `q${questionindex}`;
       this.answeredscore[questionslot] = this.questions[questionindex].answers[answerindex].weight;
+      this.answeredquestions[questionindex] = this.questions[questionindex].answers[answerindex].answertext;
+      console.log(this.answeredquestions[questionindex], this.questions[questionindex].answers[answerindex].answertext);
+      this.reload();
+    },
+    reload() { this.time = Date.now(); },
+    skiptoend(a) {
+      if (a) {
+        this.answeredscore = {"q0":2,"q1":2,"q2":2,"q3":2,"q4":2,"q5":2,"q6":2};
+      } else {
+        this.answeredscore = {"q0":0,"q1":0,"q2":0,"q3":0,"q4":0,"q5":0,"q6":2};
+      }
+      this.activeslide = this.questions.length + 1;
+    },
+    restart() {
+      this.answeredscore = {};
+      this.answeredquestions = {};
+      this.activeslide = 0;
     }
+    
   }
 });
 </script>

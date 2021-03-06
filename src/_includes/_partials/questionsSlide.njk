@@ -1,9 +1,26 @@
 <div class="container">
-  <div class="instructions">
-
+  <div class="instructions pb-5" :class="{'active': activeslide === 1 }">
+    <b>Select one.</b> Each answer is worth 0 – 2 points. Your final score will be calculated automatically to determine your results.
   </div>
-  <nav class="slide-navigation">
-    {{ content | safe }}
+  <nav class="quick-nav">
+    {% for question in questions %}
+        {% set qi = loop.index %}
+      <a
+      class="quick-nav-button"
+      :class="{
+        'active': activeslide === {{qi}},
+        'prevanswered': (answeredquestions[{{qi - 2}}] || {{qi}} === 1),
+        'disabled': activeslide < {{qi}}
+      }"
+      @click="activeslide = {{qi}}"
+      aria-label="Go to question {{qi}}"
+      >
+        <span class="quick-nav-text">
+          {{qi}}
+        </span>
+      </a>
+        
+    {% endfor %}
   </nav>
 
   <div class="questions">
@@ -11,14 +28,23 @@
       {% set qi = loop.index %}
       {% include '_partials/question-template.njk' %}
     {% endfor %}
+    <div class="question placeholder"></div>
   </div> 
 
   <div class="slide-nav">
-    <a class="previous action-btn min-w-min" @click="activeslide -= 1">
+    <a class="previous action-btn min-w-min" @click="activeslide -= 1" aria-label="Previous Question">
       Previous
     </a>
-    <a class="next action-btn min-w-min" @click="activeslide += 1">
-      Next
+    <a class="next action-btn min-w-min" 
+    @click="activeslide += 1"
+    :class="{'disabled': !answeredquestions[activeslide - 1]}"
+    aria-label="Next Question">
+      <span v-if="activeslide < questions.length">
+        Next 
+      </span>
+      <span v-else>
+        Get results
+      </span>
     </a>
   </div>
 </div>

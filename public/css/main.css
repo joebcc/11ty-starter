@@ -1,30 +1,398 @@
+@keyframes DPPfadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes DPPslideIn {
+  0% {
+    margin-left: 100%;
+    margin-right: -100%;
+    opacity: 0;
+  }
+  100% {
+    margin-left: 0%;
+    margin-right: 0%;
+    opacity: 1;
+  }
+}
+@keyframes DPPslideOut {
+  0% {
+    margin-left: 0%;
+    margin-right: 0%;
+    opacity: 1;
+  }
+  100% {
+    margin-left: -100%;
+    margin-right: 100%;
+    opacity: 0;
+  }
+}
+#datapainpoints {
+  animation: DPPfadeIn 0.5s 0.2s ease-in-out both;
+  overflow: hidden;
+}
 #datapainpoints,
-.questions {
+#datapainpoints section {
+  width: -webkit-fill-available;
+  width: -moz-available;
+  min-width: 100%;
+  max-width: 100vw;
+}
+#datapainpoints .questions,
+#datapainpoints .quick-nav-button, #datapainpoints {
   display: grid;
   grid-template-areas: "a";
 }
-#datapainpoints > section,
-#datapainpoints .question,
-.questions > section,
-.questions .question {
+#datapainpoints .questions > section, #datapainpoints .questions::before,
+#datapainpoints .questions .quick-nav-text,
+#datapainpoints .questions .question,
+#datapainpoints .quick-nav-button > section,
+#datapainpoints .quick-nav-button::before,
+#datapainpoints .quick-nav-button .quick-nav-text,
+#datapainpoints .quick-nav-button .question, #datapainpoints > section, #datapainpoints::before,
+#datapainpoints .quick-nav-text,
+#datapainpoints .question {
   margin: 0;
   grid-area: a;
 }
-
-.question.active,
+#datapainpoints .question,
+#datapainpoints section {
+  animation: DPPslideOut 0.5s ease-in-out both;
+}
+#datapainpoints .question.active,
 #datapainpoints section.active {
-  opacity: 1;
+  animation: DPPslideIn 0.5s ease-in-out both;
   z-index: 100;
 }
-.question.inactive,
+#datapainpoints .question.inactive,
 #datapainpoints section.inactive {
-  opacity: 0;
   z-index: 1;
   pointer-events: none;
+}
+#datapainpoints .yellow-text {
+  color: #FFCB05;
+}
+#datapainpoints .pb-6,
+#datapainpoints .py-6 {
+  padding-bottom: 10rem;
+}
+#datapainpoints .pt-7,
+#datapainpoints .py-6 {
+  padding-top: 10rem;
+}
+#datapainpoints .pr-6,
+#datapainpoints .px-6 {
+  padding-right: 10rem;
+}
+#datapainpoints .pl-7,
+#datapainpoints .px-6 {
+  padding-left: 10rem;
+}
+#datapainpoints .bg-fullblack {
+  background: black;
+}
+#datapainpoints .disabled {
+  pointer-events: none;
+}
+#datapainpoints .card {
+  border-top-color: #FFCB05;
+  border-top-width: 7px;
+  text-align: center;
+  box-sizing: content-box;
+  margin: -1px;
+  padding: 0;
+  box-shadow: 0 0 1rem 0.4rem rgba(0, 0, 0, 0.1);
+}
+#datapainpoints h1,
+#datapainpoints h2,
+#datapainpoints h3,
+#datapainpoints h4 {
+  font-weight: 200;
+}
+#datapainpoints h1 {
+  font-size: 6rem;
+  line-height: 1.2em;
+}
+#datapainpoints h2 {
+  font-size: 4rem;
+  line-height: 1.2em;
+}
+#datapainpoints h3 {
+  font-size: 4rem;
+  line-height: 1.2em;
+}
+#datapainpoints h4 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.2em;
+}
+#datapainpoints p {
+  font-size: 1.8rem;
+  line-height: 1.6em;
+}
+@media (max-width: 1500px) {
+  #datapainpoints h1 {
+    font-size: 5rem;
+  }
+  #datapainpoints h2 {
+    font-size: 4rem;
+  }
+  #datapainpoints h3 {
+    font-size: 3rem;
+  }
+  #datapainpoints h4 {
+    font-size: 2.4rem;
+  }
+  #datapainpoints p {
+    font-size: 1.8rem;
+  }
+}
+@media (max-width: 992px) {
+  #datapainpoints h1 {
+    font-size: 4rem;
+  }
+  #datapainpoints h2 {
+    font-size: 3.5rem;
+  }
+  #datapainpoints h3 {
+    font-size: 3rem;
+  }
+  #datapainpoints h4 {
+    font-size: 2.4rem;
+  }
+  #datapainpoints p {
+    font-size: 1.8rem;
+  }
+}
+#datapainpoints .absolute {
+  position: absolute;
+  margin-top: -76px;
+  z-index: 1000;
+  top: 0;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+@media (max-width: 992px) {
+  #datapainpoints .absolute {
+    margin-top: 0px;
+  }
+}
+#datapainpoints .action-btn {
+  font-weight: 800;
+  width: fit-content;
+  min-width: 18rem;
+  transition: 0.25s ease-in-out all;
+}
+@media (max-width: 992px) {
+  #datapainpoints .action-btn {
+    min-width: 10rem;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+}
+#datapainpoints .action-btn.previous {
+  background-color: #464646;
+  color: white !important;
+}
+#datapainpoints .action-btn.disabled {
+  opacity: 0.7;
+}
+#datapainpoints .action-btn + .action-btn {
+  margin-left: 4.2rem;
+}
+#datapainpoints .first-col {
+  padding-right: 5.5rem;
+}
+@media (max-width: 992px) {
+  #datapainpoints .first-col {
+    padding-right: 15px;
+  }
 }
 
 #dpp-quiz {
   min-height: 70vh;
+}
+#dpp-quiz .answers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 3rem;
+  margin-top: 3.2rem;
+  margin-bottom: 6.2rem;
+}
+@media (max-width: 992px) {
+  #dpp-quiz .answers {
+    grid-template-columns: 1fr;
+  }
+}
+#dpp-quiz .answers::before {
+  content: none;
+}
+#dpp-quiz .answer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem 3rem 2rem;
+  height: 21rem;
+  flex-direction: column;
+  border: 1px solid white;
+  font-weight: 800;
+  transition: 0.25s ease all;
+}
+#dpp-quiz .answer svg {
+  transition: 0.25s ease all;
+  height: 100%;
+  width: 100%;
+  padding-bottom: 2rem;
+}
+#dpp-quiz .answer * {
+  transition: 0.25s ease all;
+}
+#dpp-quiz .answer:hover {
+  box-shadow: 0 0 2rem 0.3rem rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+}
+#dpp-quiz .answer:hover svg {
+  -webkit-filter: drop-shadow(0 0 1rem white);
+  filter: drop-shadow(0 0 1rem white);
+}
+#dpp-quiz .answer.active {
+  box-shadow: 0 0 2rem 0.3rem rgba(255, 193, 0, 0.8);
+  border-color: #ffc100;
+}
+#dpp-quiz .answer.active svg {
+  -webkit-filter: drop-shadow(0 0 1rem #ffc100);
+  filter: drop-shadow(0 0 1rem #ffc100);
+}
+#dpp-quiz .answer.active svg * {
+  stroke: #ffc100;
+}
+
+.dpp-result {
+  position: relative;
+}
+.dpp-result .result-bg {
+  position: absolute;
+  right: 0;
+  max-height: 100%;
+  max-width: 55vw;
+}
+.ok .dpp-result .result-bg {
+  top: 0;
+}
+.ready .dpp-result .result-bg {
+  bottom: 0;
+  max-width: 60vw;
+}
+@media (max-width: 1200px) {
+  .ready .dpp-result .result-bg {
+    max-width: 70vw;
+  }
+}
+@media (max-width: 992px) {
+  .ready .dpp-result .result-bg {
+    max-width: 100vw;
+  }
+}
+@media (max-width: 992px) {
+  .dpp-result {
+    display: grid;
+    padding-top: 0rem !important;
+    padding-bottom: 5rem !important;
+  }
+  #datapainpoints .dpp-result .first-col {
+    padding-right: 15px;
+  }
+  .dpp-result .result-bg {
+    position: relative;
+    max-width: unset;
+    bottom: unset;
+    top: 0;
+    max-height: 50rem;
+    padding-bottom: 3rem;
+    justify-self: end;
+  }
+}
+
+#dpp-home {
+  position: relative;
+  overflow: hidden;
+}
+#dpp-home p {
+  font-size: 2.4rem;
+  line-height: 1.6em;
+}
+#dpp-home .home-bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  max-height: 100%;
+  max-width: 70vw;
+}
+@media (max-width: 992px) {
+  #dpp-home {
+    display: grid;
+    padding-top: 0rem;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 100vw;
+  }
+  #dpp-home .home-bg {
+    position: relative;
+    max-width: unset;
+    justify-self: right;
+    max-width: 120vw;
+    margin-right: calc(100% - 100vw);
+  }
+  #dpp-home h1 {
+    margin-top: 1rem;
+  }
+}
+
+.instructions {
+  opacity: 0;
+  transition: 0.4s ease-in-out all;
+}
+.instructions.active {
+  opacity: 1;
+}
+
+.quick-nav {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 5.5rem 1rem;
+  max-width: 54rem;
+  margin-bottom: 4.5rem;
+}
+.quick-nav .quick-nav-button {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  opacity: 0.3;
+  color: white;
+  font-weight: 800;
+  font-size: 1.4rem;
+  width: 4.4rem;
+  height: 4.4rem;
+  padding: 0.5rem;
+  transition: 0.25s ease-in-out all;
+}
+#datapainpoints .quick-nav .quick-nav-button.prevanswered {
+  opacity: 0.55;
+  pointer-events: visible;
+}
+#datapainpoints .quick-nav .quick-nav-button.active {
+  opacity: 1;
+}
+.quick-nav .quick-nav-button::before {
+  content: "";
+  border-radius: 100%;
+  background: #464646;
+  width: 3.4rem;
+  height: 3.4rem;
 }
 
 /*# sourceMappingURL=main.css.map */
