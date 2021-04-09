@@ -60,7 +60,7 @@
       }
     ]
   }, {
-    "question": "My teams think data is:",
+    "question": "When I use data to set priorities, I expect:",
     "answers": [
       {
         "answertext": "Disappointment",
@@ -80,7 +80,7 @@
       }
     ]
   }, {
-    "question": "When I use data to set priorities, I expect:",
+    "question": "To customize my BI platform with inputs or KPIs, I need:",
     "answers": [
       {
         "answertext": "Prayer",
